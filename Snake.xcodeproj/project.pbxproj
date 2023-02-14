@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA34B13C299C175A0067FA19 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FA34B13B299C175A0067FA19 /* Shader.vsh */; };
+		FA34B13E299C17690067FA19 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FA34B13D299C17690067FA19 /* Shader.fsh */; };
 		FA734734299B7E7500D68127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA734733299B7E7500D68127 /* AppDelegate.swift */; };
 		FA734736299B7E7500D68127 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA734735299B7E7500D68127 /* SceneDelegate.swift */; };
 		FA734738299B7E7500D68127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA734737299B7E7500D68127 /* ViewController.swift */; };
@@ -14,13 +16,14 @@
 		FA73473D299B7E7700D68127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA73473C299B7E7700D68127 /* Assets.xcassets */; };
 		FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA73473E299B7E7700D68127 /* LaunchScreen.storyboard */; };
 		FA734750299B818F00D68127 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA73474F299B818E00D68127 /* Renderer.mm */; };
-		FA734752299B83AA00D68127 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FA734751299B83AA00D68127 /* Shader.vsh */; };
-		FA734754299B83C000D68127 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FA734753299B83C000D68127 /* Shader.fsh */; };
 		FA734758299B86C000D68127 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA734757299B86C000D68127 /* Utilities.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA34B138299C14E20067FA19 /* Snake-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snake-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA34B13B299C175A0067FA19 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		FA34B13D299C17690067FA19 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		FA34B13F299C18E30067FA19 /* Entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		FA734733299B7E7500D68127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA734735299B7E7500D68127 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA734737299B7E7500D68127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,8 +35,6 @@
 		FA734748299B801300D68127 /* Includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Includes.h; sourceTree = "<group>"; };
 		FA73474E299B816700D68127 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		FA73474F299B818E00D68127 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Renderer.mm; sourceTree = "<group>"; };
-		FA734751299B83AA00D68127 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
-		FA734753299B83C000D68127 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		FA734757299B86C000D68127 /* Utilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
 		FA734759299B876C00D68127 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -49,6 +50,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA34B140299C19B10067FA19 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				FA34B13B299C175A0067FA19 /* Shader.vsh */,
+				FA34B13D299C17690067FA19 /* Shader.fsh */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		FA34B142299C1A190067FA19 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FA734747299B7F5300D68127 /* Utilities.h */,
+				FA73474E299B816700D68127 /* Renderer.h */,
+				FA34B13F299C18E30067FA19 /* Entity.h */,
+				FA734748299B801300D68127 /* Includes.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		FA734727299B7E7500D68127 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +81,8 @@
 		FA734732299B7E7500D68127 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				FA34B142299C1A190067FA19 /* Headers */,
+				FA34B140299C19B10067FA19 /* Shaders */,
 				FA734733299B7E7500D68127 /* AppDelegate.swift */,
 				FA734735299B7E7500D68127 /* SceneDelegate.swift */,
 				FA734737299B7E7500D68127 /* ViewController.swift */,
@@ -68,12 +91,7 @@
 				FA73473E299B7E7700D68127 /* LaunchScreen.storyboard */,
 				FA734741299B7E7700D68127 /* Info.plist */,
 				FA734757299B86C000D68127 /* Utilities.cpp */,
-				FA734747299B7F5300D68127 /* Utilities.h */,
-				FA73474E299B816700D68127 /* Renderer.h */,
 				FA73474F299B818E00D68127 /* Renderer.mm */,
-				FA734748299B801300D68127 /* Includes.h */,
-				FA734751299B83AA00D68127 /* Shader.vsh */,
-				FA734753299B83C000D68127 /* Shader.fsh */,
 				FA34B138299C14E20067FA19 /* Snake-Bridging-Header.h */,
 			);
 			path = Snake;
@@ -138,11 +156,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA734752299B83AA00D68127 /* Shader.vsh in Resources */,
+				FA34B13C299C175A0067FA19 /* Shader.vsh in Resources */,
 				FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */,
 				FA73473D299B7E7700D68127 /* Assets.xcassets in Resources */,
 				FA73473B299B7E7500D68127 /* Main.storyboard in Resources */,
-				FA734754299B83C000D68127 /* Shader.fsh in Resources */,
+				FA34B13E299C17690067FA19 /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

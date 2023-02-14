@@ -15,3 +15,4 @@ void main()
     v_color = color;
     gl_Position = modelViewProjectionMatrix * position;
 }
+

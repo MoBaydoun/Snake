@@ -11,3 +11,4 @@ void main()
 {
     o_fragColor = v_color;
 }
+

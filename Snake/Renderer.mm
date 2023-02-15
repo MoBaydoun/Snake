@@ -1,6 +1,8 @@
 #import "Renderer.h"
 
 #import "Utilities.h"
+#import "Entity.h"
+#import "Test.h"
 
 enum {
     UNIFORM_MODELVIEWPROJECTION_MATRIX,
@@ -32,7 +34,9 @@ enum {
 
 - (void)loadModels
 {
-    
+    Test *t = new Test(1.0f);
+    Test *t1 = new Test(-0.5f);
+    Test *t2 = new Test(-1.0f);
 }
 
 - (bool)setupShaders
@@ -79,7 +83,7 @@ enum {
     mvp = GLKMatrix4Multiply(perspective, mvp);
     
     // updates go here
-    
+    Entity::UpdateEntities();
 }
 
 - (void)draw:(CGRect)drawRect
@@ -89,8 +93,20 @@ enum {
     glViewport(0, 0, (int) glkView.drawableWidth, (int) glkView.drawableHeight);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glUseProgram(program);
-    
     // draw vertices here
+    auto entities = Entity::GetEntities();
+    for (auto &entity : entities)
+    {
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), entity->GetVertices());
+        glEnableVertexAttribArray(0);
+        
+        // pass the colors to vertex shader at position 1 (color attribute)
+        glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), entity->GetColors());
+        glEnableVertexAttribArray(1);
+        
+        // draw
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, entity->GetIndices());
+    }
 }
 
 @end

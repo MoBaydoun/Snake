@@ -17,6 +17,8 @@
 		FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA73473E299B7E7700D68127 /* LaunchScreen.storyboard */; };
 		FA734750299B818F00D68127 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA73474F299B818E00D68127 /* Renderer.mm */; };
 		FA734758299B86C000D68127 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA734757299B86C000D68127 /* Utilities.cpp */; };
+		FAB181E3299C61BD001C665A /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB181E2299C61BD001C665A /* Test.cpp */; };
+		FAB181E6299D69C3001C665A /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB181E5299D69C3001C665A /* Entity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		FA73474F299B818E00D68127 /* Renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Renderer.mm; sourceTree = "<group>"; };
 		FA734757299B86C000D68127 /* Utilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
 		FA734759299B876C00D68127 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB181E2299C61BD001C665A /* Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
+		FAB181E5299D69C3001C665A /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		FABDF591299C4AC200338168 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +67,11 @@
 		FA34B142299C1A190067FA19 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				FA734748299B801300D68127 /* Includes.h */,
 				FA734747299B7F5300D68127 /* Utilities.h */,
 				FA73474E299B816700D68127 /* Renderer.h */,
 				FA34B13F299C18E30067FA19 /* Entity.h */,
-				FA734748299B801300D68127 /* Includes.h */,
+				FABDF591299C4AC200338168 /* Test.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -81,6 +87,7 @@
 		FA734732299B7E7500D68127 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				FAFBE484299C1BE400A678A5 /* Source */,
 				FA34B142299C1A190067FA19 /* Headers */,
 				FA34B140299C19B10067FA19 /* Shaders */,
 				FA734733299B7E7500D68127 /* AppDelegate.swift */,
@@ -90,11 +97,20 @@
 				FA73473C299B7E7700D68127 /* Assets.xcassets */,
 				FA73473E299B7E7700D68127 /* LaunchScreen.storyboard */,
 				FA734741299B7E7700D68127 /* Info.plist */,
-				FA734757299B86C000D68127 /* Utilities.cpp */,
-				FA73474F299B818E00D68127 /* Renderer.mm */,
 				FA34B138299C14E20067FA19 /* Snake-Bridging-Header.h */,
 			);
 			path = Snake;
+			sourceTree = "<group>";
+		};
+		FAFBE484299C1BE400A678A5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FA734757299B86C000D68127 /* Utilities.cpp */,
+				FA73474F299B818E00D68127 /* Renderer.mm */,
+				FAB181E5299D69C3001C665A /* Entity.cpp */,
+				FAB181E2299C61BD001C665A /* Test.cpp */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +189,9 @@
 			files = (
 				FA734750299B818F00D68127 /* Renderer.mm in Sources */,
 				FA734738299B7E7500D68127 /* ViewController.swift in Sources */,
+				FAB181E6299D69C3001C665A /* Entity.cpp in Sources */,
 				FA734734299B7E7500D68127 /* AppDelegate.swift in Sources */,
+				FAB181E3299C61BD001C665A /* Test.cpp in Sources */,
 				FA734736299B7E7500D68127 /* SceneDelegate.swift in Sources */,
 				FA734758299B86C000D68127 /* Utilities.cpp in Sources */,
 			);

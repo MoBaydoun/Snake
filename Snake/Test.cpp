@@ -1,16 +1,16 @@
 #include "Test.h"
 
-Test::Test(int xOffset) : Entity() {
+Test::Test(GLfloat xOffset) : Entity() {
     Create(xOffset);
 }
 
-void Test::Create(int xOffset) {
+void Test::Create(GLfloat xOffset) {
     GLfloat testVerts[] =
     {
-        -0.25f + xOffset, 0.5f, 0.0f,
-        0.125f + xOffset, 0.5f, 0.0f,
-        0.125f + xOffset, -0.5f, 0.0f,
-        -0.25f + xOffset, -0.5f, 0.0f
+        -0.25f + xOffset, 0.5f, -5.0f,
+        0.125f + xOffset, 0.5f, -5.0f,
+        0.125f + xOffset, -0.5f, -5.0f,
+        -0.25f + xOffset, -0.5f, -5.0f
     };
     
     GLuint testIndices[] =
@@ -21,6 +21,8 @@ void Test::Create(int xOffset) {
     
     GLfloat testColors[] =
     {
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
         1.0f, 0.0f, 0.0f, 1.0f,
         1.0f, 0.0f, 0.0f, 1.0f
     };

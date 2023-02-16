@@ -33,4 +33,8 @@ class ViewController: GLKViewController {
         renderer.draw(rect);
     }
     
+    @objc func moveDirection(_ sender: UIButton) {
+        // this function should handle making the snake go in the direction specified by one block.
+    }
+    
 }

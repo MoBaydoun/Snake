@@ -11,3 +11,13 @@ public:
 private:
     Utilities() {}
 };
+
+template <typename T>
+struct Vector3
+{
+    T x, y, z;
+    Vector3(T x, T y, T z) : x(x), y(y), z(z) {};
+};
+
+typedef Vector3<GLfloat> vec3f;
+typedef Vector3<GLuint> vec3i;

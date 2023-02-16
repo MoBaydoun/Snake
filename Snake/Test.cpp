@@ -1,16 +1,16 @@
 #include "Test.h"
 
-Test::Test(GLfloat xOffset) : Entity() {
-    Create(xOffset);
+Test::Test(vec3f position) : Entity() {
+    Create(position);
 }
 
-void Test::Create(GLfloat xOffset) {
+void Test::Create(vec3f position) {
     GLfloat testVerts[] =
     {
-        -0.25f + xOffset, 0.5f, -5.0f,
-        0.125f + xOffset, 0.5f, -5.0f,
-        0.125f + xOffset, -0.5f, -5.0f,
-        -0.25f + xOffset, -0.5f, -5.0f
+        -0.25f + position.x, 0.5f + position.y, -5.0f + position.z,
+        0.125f + position.x, 0.5f + position.y, -5.0f + position.z,
+        0.125f + position.x, -0.5f + position.y, -5.0f + position.z,
+        -0.25f + position.x, -0.5f + position.y, -5.0f + position.z
     };
     
     GLuint testIndices[] =

@@ -1,6 +1,5 @@
 #import "Renderer.h"
 
-#import "Utilities.h"
 #import "Entity.h"
 #import "Test.h"
 
@@ -34,10 +33,8 @@ enum {
 
 - (void)loadModels
 {
-    Test *t = new Test(1.0f);
-    Test *t1 = new Test(-0.5f);
-    Test *t2 = new Test(-1.0f);
-    Test *t3 = new Test(1.25f);
+    Test *t = new Test({1.0f, 1.5f, 0.0f});
+    Test *t1 = new Test({-1.0f, -1.5f, 0.0f});
 }
 
 - (bool)setupShaders

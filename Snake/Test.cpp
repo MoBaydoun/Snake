@@ -44,3 +44,8 @@ void Test::Create(vec3f position) {
 void Test::Update() {
     std::cout << "Update work??" << std::endl;
 }
+
+/** Function should be made in order to increase the size of the snake once the snake gets the pills. */
+void Increase_Snake_Size(){
+    std::cout << "Snake Will Grow" << std::endl;
+}

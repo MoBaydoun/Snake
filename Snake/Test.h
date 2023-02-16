@@ -5,8 +5,8 @@
 class Test : Entity
 {
 public:
-    Test(int xOffset);
+    Test(GLfloat xOffset);
 protected:
-    void Create(int xOffset) override;
+    void Create(GLfloat xOffset) override;
     void Update() override;
 };

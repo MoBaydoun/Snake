@@ -37,7 +37,7 @@ public:
     }
     
 protected:
-    virtual void Create(int xOffset) = 0;
+    virtual void Create(GLfloat xOffset) = 0;
     virtual void Update() = 0;
     
     GLfloat *vertices;

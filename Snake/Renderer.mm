@@ -35,6 +35,7 @@ enum {
 {
     Test *t = new Test({1.0f, 1.5f, 0.0f});
     Test *t1 = new Test({-1.0f, -1.5f, 0.0f});
+    Test *c1 = new Test({-1.0f, -2.5f, 0.0f});
 }
 
 - (bool)setupShaders
@@ -103,21 +104,21 @@ enum {
         
         glGenBuffers(1, &vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        glBufferData(GL_ARRAY_BUFFER, 12 * sizeof(GLfloat), entity->GetVertices(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, entity->GetVertexCount() * sizeof(GLfloat), entity->GetVertices(), GL_STATIC_DRAW);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
         glEnableVertexAttribArray(0);
         
         glGenBuffers(1, &colorBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-        glBufferData(GL_ARRAY_BUFFER, 16 * sizeof(GLfloat), entity->GetColors(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, entity->GetVertexCount() * 4 / 3 * sizeof(GLfloat), entity->GetColors(), GL_STATIC_DRAW);
         glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
         glEnableVertexAttribArray(1);
         
         glGenBuffers(1, &indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(GLuint), entity->GetIndices(), GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, entity->GetIndexCount() * sizeof(GLuint), entity->GetIndices(), GL_STATIC_DRAW);
         
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, entity->GetIndexCount(), GL_UNSIGNED_INT, 0);
         
         glDeleteBuffers(1, &vertexBuffer);
         glDeleteBuffers(1, &colorBuffer);

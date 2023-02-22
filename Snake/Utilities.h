@@ -17,6 +17,10 @@ struct Vector3
 {
     T x, y, z;
     Vector3(T x, T y, T z) : x(x), y(y), z(z) {};
+    T& operator [](int index)
+    {
+        return index == 0 ? x : index == 1 ? y : z;
+    }
 };
 
 typedef Vector3<GLfloat> vec3f;

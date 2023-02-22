@@ -5,8 +5,8 @@
 class Test : Entity
 {
 public:
-    Test(vec3f position);
+    Test(const vec3f& position);
 protected:
-    void Create(vec3f position) override;
+    void Create(const vec3f& position) override;
     void Update() override;
 };

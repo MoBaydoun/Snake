@@ -1,10 +1,10 @@
 #include "Test.h"
 
-Test::Test(vec3f position) : Entity() {
+Test::Test(const vec3f& position) : Entity() {
     Create(position);
 }
 
-void Test::Create(vec3f position) {
+void Test::Create(const vec3f& position) {
     GLfloat testVerts[] =
     {
         -0.25f + position.x, 0.5f + position.y, -5.0f + position.z,
@@ -27,6 +27,9 @@ void Test::Create(vec3f position) {
         1.0f, 0.0f, 0.0f, 1.0f
     };
     
+    numVertices = sizeof(testVerts) / sizeof(GLfloat);
+    numIndices = sizeof(testIndices) / sizeof(GLuint);
+    
     int numVertices = (int) (sizeof(testVerts) / sizeof(GLfloat));
     int numColors = (int) (sizeof(testColors) / sizeof(GLfloat));
     int numIndices = (int) (sizeof(testIndices) / sizeof(GLuint));
@@ -43,9 +46,4 @@ void Test::Create(vec3f position) {
 
 void Test::Update() {
     std::cout << "Update work??" << std::endl;
-}
-
-/** Function should be made in order to increase the size of the snake once the snake gets the pills. */
-void Increase_Snake_Size(){
-    std::cout << "Snake Will Grow" << std::endl;
 }

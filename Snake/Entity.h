@@ -7,19 +7,29 @@ class Entity
 public:
     Entity() { entities.push_back(this); }
     
-    const GLfloat * GetVertices()
+    const GLfloat * GetVertices() const
     {
         return vertices;
     }
     
-    const GLfloat * GetColors()
+    const GLfloat * GetColors() const
     {
         return colors;
     }
 
-    const GLuint * GetIndices()
+    const GLuint * GetIndices() const
     {
         return indices;
+    }
+    
+    const GLuint GetVertexCount() const
+    {
+        return numVertices;
+    }
+    
+    const GLuint GetIndexCount() const
+    {
+        return numIndices;
     }
 
     
@@ -37,12 +47,15 @@ public:
     }
     
 protected:
-    virtual void Create(vec3f position) = 0;
+    virtual void Create(const vec3f& position) = 0;
     virtual void Update() = 0;
     
     GLfloat *vertices;
     GLfloat *colors;
     GLuint *indices;
+    
+    GLuint numVertices;
+    GLuint numIndices;
     
 private:
     static std::vector<Entity*> entities;

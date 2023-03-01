@@ -33,11 +33,11 @@ public:
     }
 
     
-    static void UpdateEntities()
+    static void UpdateEntities(float elapsedTime)
     {
         for (auto &entity : entities)
         {
-            entity->Update();
+            entity->Update(elapsedTime);
         }
     }
     
@@ -48,7 +48,7 @@ public:
     
 protected:
     virtual void Create(const vec3f& position) = 0;
-    virtual void Update() = 0;
+    virtual void Update(float elapsedTime) = 0;
     
     GLfloat *vertices;
     GLfloat *colors;

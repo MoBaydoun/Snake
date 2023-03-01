@@ -42,6 +42,7 @@
 		FAB181E2299C61BD001C665A /* Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
 		FAB181E5299D69C3001C665A /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		FABDF591299C4AC200338168 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		FAC75AE429A7F1E600397298 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 				FA73474E299B816700D68127 /* Renderer.h */,
 				FA34B13F299C18E30067FA19 /* Entity.h */,
 				FABDF591299C4AC200338168 /* Test.h */,
+				FAC75AE429A7F1E600397298 /* Game.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";

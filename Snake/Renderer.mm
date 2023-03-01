@@ -2,6 +2,7 @@
 
 #import "Entity.h"
 #import "Test.h"
+#import "Game.h"
 
 enum {
     UNIFORM_MODELVIEWPROJECTION_MATRIX,
@@ -20,6 +21,8 @@ enum {
     GLuint program;
     std::chrono::time_point<std::chrono::steady_clock> lastTime;
     GLKMatrix4 mvp;
+    float someshit;
+    bool peaked;
 }
 
 @end
@@ -35,7 +38,9 @@ enum {
 {
     Test *t = new Test({1.0f, 1.5f, 0.0f});
     Test *t1 = new Test({-1.0f, -1.5f, 0.0f});
-    Test *c1 = new Test({-1.0f, -2.5f, 0.0f});
+    Test *c1 = new Test({0.0f, -2.5f, 0.0f});
+    Test *c2 = new Test({-1.25f, -2.5f, 0.0f});
+    Test *c3 = new Test({1.5f, 1.0f, 0.0f});
 }
 
 - (bool)setupShaders
@@ -60,6 +65,8 @@ enum {
     
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     glkView = view;
+    someshit = 0.0f;
+    peaked = false;
     [EAGLContext setCurrentContext:view.context];
     if (![self setupShaders]) return;
     
@@ -81,8 +88,16 @@ enum {
     GLKMatrix4 perspective = GLKMatrix4MakePerspective(60.0f * M_PI / 180.0f, aspect, 1.0f, 20.0f);
     mvp = GLKMatrix4Multiply(perspective, mvp);
     
+    if (!peaked) {
+        if (someshit == 10) peaked = true;
+        someshit++;
+    } else {
+        if (someshit == -10) peaked = false;
+        someshit--;
+    }
+    
     // updates go here
-    Entity::UpdateEntities();
+    Entity::UpdateEntities(someshit / 100);
 }
 
 - (void)draw:(CGRect)drawRect

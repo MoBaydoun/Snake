@@ -2,14 +2,14 @@ import GLKit
 
 extension ViewController: GLKViewControllerDelegate {
     func glkViewControllerUpdate(_ controller: GLKViewController) {
-        renderer.update();
+        bridge.update();
     }
 }
 
 class ViewController: GLKViewController {
     
     private var context: EAGLContext?
-    private var renderer: Renderer!
+    private var bridge: Bridge!
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -17,9 +17,9 @@ class ViewController: GLKViewController {
         if let view = self.view as? GLKView, let context = context {
             view.context = context
             delegate = self as GLKViewControllerDelegate
-            renderer = Renderer();
-            renderer.setup(view);
-            renderer.loadModels();
+            bridge = Bridge();
+            bridge.setup(view);
+            bridge.loadModels();
         }
     }
     
@@ -30,7 +30,7 @@ class ViewController: GLKViewController {
     }
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        renderer.draw(rect);
+        bridge.draw(rect);
     }
     
     @objc func moveDirection(_ sender: UIButton) {

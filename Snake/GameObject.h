@@ -27,7 +27,6 @@ void GameObject::AddComponent(T* component)
     component->SetParent(this);
     component->Awake();
     components.insert({ typeid(T), component });
-    Utilities::PrintErrors("After AddComponent");
 }
 
 template <typename T>

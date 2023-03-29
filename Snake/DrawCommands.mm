@@ -3,17 +3,11 @@
 GLuint DrawCommands::PositionVBO(const std::vector<GLfloat>& vertices, GLuint& program) {
     GLuint vertexBuffer;
     glGenBuffers(1, &vertexBuffer);
-    Utilities::PrintErrors("After glGenBuffers");
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    Utilities::PrintErrors("After glBindBuffer");
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(GLfloat), &vertices[0], GL_STATIC_DRAW);
-    Utilities::PrintErrors("After glBufferData");
     auto loc = glGetAttribLocation(program, "position");
-    Utilities::PrintErrors("After glGetAttribLocation");
     glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
-    Utilities::PrintErrors("After glVertexAttribPointer");
     glEnableVertexAttribArray(loc);
-    Utilities::PrintErrors("After glEnableVertexAttribArray");
     
     return vertexBuffer;
 }
@@ -44,18 +38,14 @@ GLuint DrawCommands::TexCoordVBO(const std::vector<GLfloat>& texCoords, GLuint& 
 
 GLuint DrawCommands::ColorVBO(const std::vector<GLfloat>& colors, GLuint& program) {
     GLuint colorBuffer;
+    Utilities::PrintErrors("Prior glGenBuffers Color");
     glGenBuffers(1, &colorBuffer);
-    Utilities::PrintErrors("After glGenBuffers");
+    Utilities::PrintErrors("After glGenBuffers Color");
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
-    Utilities::PrintErrors("After glBindBuffer");
     glBufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(GLfloat), &colors[0], GL_STATIC_DRAW);
-    Utilities::PrintErrors("After glBufferData");
     auto loc = glGetAttribLocation(program, "color");
-    Utilities::PrintErrors("After glGetAttribLocation");
     glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    Utilities::PrintErrors("After glVertexAttribPointer");
     glEnableVertexAttribArray(loc);
-    Utilities::PrintErrors("After glEnableVertexAttribArray");
     
     return colorBuffer;
 }
@@ -64,13 +54,8 @@ GLuint DrawCommands::ColorVBO(const std::vector<GLfloat>& colors, GLuint& progra
 GLuint DrawCommands::IndexVBO(const std::vector<GLuint>& indices) {
     GLuint indexBuffer;
     glGenBuffers(1, &indexBuffer);
-    Utilities::PrintErrors("After glGenBuffers");
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    Utilities::PrintErrors("After glBindBuffer");
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
-    Utilities::PrintErrors("After glBufferData");
-    glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
-    Utilities::PrintErrors("After glDrawElements");
     
     return indexBuffer;
 }

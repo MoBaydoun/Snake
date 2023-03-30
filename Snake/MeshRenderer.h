@@ -49,7 +49,9 @@ public:
     {
         model = GLKMatrix4TranslateWithVector3(GLKMatrix4Identity, transform->position);
         model = GLKMatrix4ScaleWithVector3(model, transform->scale);
-        model = GLKMatrix4RotateWithVector3(model, transform->radians, transform->rotation);
+        model = GLKMatrix4Rotate(model, transform->rotation.x, 1.0f, 0.0f, 0.0f);
+        model = GLKMatrix4Rotate(model, transform->rotation.y, 0.0f, 1.0f, 0.0f);
+        model = GLKMatrix4Rotate(model, transform->rotation.z, 0.0f, 0.0f, 1.0f);
     }
     
     void Draw()

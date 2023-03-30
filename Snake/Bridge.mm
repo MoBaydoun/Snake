@@ -28,6 +28,10 @@
     
 }
 
+/**
+Sets up the view.
+ */
+
 - (void)setup:(GLKView *)view
 {
     view.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
@@ -54,7 +58,7 @@
     glEnable(GL_DEPTH_TEST);
     lastTime = std::chrono::steady_clock::now();
 }
-
+/** Updates the object. */
 - (void)update
 {
     // taking time
@@ -76,11 +80,18 @@
     elapsedFrames += 1.0f;
     
 }
+
+/**
+    Updates game objects.
+ **/
 - (void)fixedUpdate
 {
     GameManager::FixedUpdateGameObjects();
 }
 
+/** Draws rectangle.
+    @param (CGRect)drawRect
+ */
 - (void)draw:(CGRect)drawRect
 {
     glViewport(0, 0, (int) glkView.drawableWidth, (int) glkView.drawableHeight);
@@ -89,10 +100,14 @@
     GameManager::DrawGameObjects();
 }
 
+/** Sets the direction of the object.
+    @param (int)dir
+ */
 - (void)setDir:(int)dir {
     GameManager::SetDirection(dir, elapsedFrames);
 }
-
+/** Returns the score from the game manager.
+ @return GameManager::score */
 - (int)getScore {
     return GameManager::score;
 }

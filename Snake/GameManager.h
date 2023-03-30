@@ -8,6 +8,8 @@
 #import "PillRotation.h"
 #import "SnakeHead.h"
 
+/** This code manages the game. */
+
 class GameManager
 {
 public:
@@ -31,6 +33,8 @@ SnakeHead* GameManager::snake;
 GridComponent* GameManager::pill;
 
 int GameManager::score = 0;
+
+/** Sets up scene. */
 
 void GameManager::SceneSetup()
 {
@@ -72,6 +76,8 @@ void GameManager::SceneSetup()
     
 }
 
+/** Updates the objects in the scene. */
+
 void GameManager::UpdateGameObjects()
 {
     for (auto &go : objects)
@@ -79,6 +85,8 @@ void GameManager::UpdateGameObjects()
         go->UpdateComponents();
     }
 }
+
+/** Updates objects and detects collisions. */
 
 void GameManager::FixedUpdateGameObjects()
 {
@@ -89,6 +97,8 @@ void GameManager::FixedUpdateGameObjects()
     GameManager::CollisionChecker();
 }
 
+/** Draws up the game objects for the scene. */
+
 void GameManager::DrawGameObjects()
 {
     for (auto &go : objects)
@@ -97,6 +107,10 @@ void GameManager::DrawGameObjects()
     }
 }
 
+/** Adds a basic game object to the game and returns it.
+    @return go
+ */
+
 GameObject* GameManager::AddGameObject()
 {
     GameObject *go = new GameObject();
@@ -104,12 +118,21 @@ GameObject* GameManager::AddGameObject()
     return go;
 }
 
+/** Sets the direction.
+    @param dir
+    @param elapsedFrames
+ 
+ */
+
 void GameManager::SetDirection(int dir, float& elapsedFrames) {
     if((snake->dir + dir) % 2 == 1) {
         snake->dir = dir;
         elapsedFrames = 30.0f;
     }
 }
+
+/** Checks for collisions.
+ */
 
 void GameManager::CollisionChecker() {
     if(snake->gc->x == pill->x && snake->gc->y == pill->y) {
@@ -135,6 +158,10 @@ void GameManager::CollisionChecker() {
         snake->justExpanded = true;
     }
 }
+
+/** Gets a random coordinate from the playing field.
+ @returns (float) (std::rand() % 21)
+ */
 
 float GameManager::GetRandomCoord() {
     return (float) (std::rand() % 21);

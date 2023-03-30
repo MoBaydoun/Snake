@@ -29,4 +29,5 @@ public:
     
     std::map<std::string, GLint> locations;
     GLuint program;
+    int tex;
 };

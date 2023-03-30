@@ -54,7 +54,22 @@ void GameManager::SceneSetup()
     mr2->SetMesh(m1);
     mr2->SetRenderer(new Renderer());
     pill->AddComponent(mr2);
+    pill->GetComponent<Transform>()->scale = { 0.7f, 0.7f, 0.7f };
     GameManager::pill = pgc;
+    
+    auto plane = AddGameObject();
+    plane->AddComponent(new Transform());
+    auto t = plane->GetComponent<Transform>();
+    t->rotation.x = M_PI / 2;
+    t->position = { 0.0f, 0.0f, -62.0f };
+    t->scale = { 21.0f, 21.0f, 1.0f };
+    Mesh *m2 = new Mesh("plane.obj");
+    MeshRenderer *mr3 = new MeshRenderer();
+    mr3->SetColor({ 1.0f, 0.5f, 0.32f });
+    mr3->SetMesh(m2);
+    mr3->SetRenderer(new Renderer());
+    plane->AddComponent(mr3);
+    
 }
 
 void GameManager::UpdateGameObjects()

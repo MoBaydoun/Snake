@@ -45,7 +45,8 @@ class ViewController: GLKViewController {
         swipeD.direction = .down;
         view.addGestureRecognizer(swipeD);
         
-        scoreLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 90, height: 20))
+        scoreLabel = UILabel(frame: CGRect(x: 0, y: 80, width: 90, height: 20))
+        scoreLabel.center.x = view.center.x;
         scoreLabel.textColor = .white;
         scoreLabel.numberOfLines = 0;
         view.addSubview(scoreLabel);

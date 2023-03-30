@@ -14,8 +14,6 @@ out vec4 FragColor;
 
 void main()
 {
-    
-    
     // ambient
     float ambientStrength = 0.1;
     vec3 ambient = ambientStrength * lightColor;
@@ -36,4 +34,3 @@ void main()
     vec3 result = (ambient + diffuse + specular) * objectColor;
     FragColor = vec4(result, 1.0);
 }
-

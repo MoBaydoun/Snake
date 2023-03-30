@@ -41,7 +41,7 @@
     
     elapsedFrames = 0.0f;
     
-    Camera::current = new Camera({ 0.0f, 0.0f, 10.0f }, { 0.0f, 0.0f, -10.0f }, (60.0f * M_PI) / 180.0f, 1.0f, 1.0f, 70.0f);
+    Camera::current = new Camera({ 0.0f, 0.0f, 10.0f }, { 0.0f, 0.0f, -10.0f }, (60.0f * M_PI) / 180.0f, 1.0f, 1.0f, 80.0f);
     
     GameManager::SceneSetup();
     
@@ -68,7 +68,7 @@
     
     GameManager::UpdateGameObjects();
     
-    if (elapsedFrames >= 30.0f)
+    if (elapsedFrames >= 20.0f)
     {
         [self fixedUpdate];
         elapsedFrames = 0.0f;

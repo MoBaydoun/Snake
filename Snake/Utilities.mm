@@ -1,5 +1,4 @@
 #include "Utilities.h"
-
 char *Utilities::ReadShaderFile(const char *fileName) {
     FILE *fp = fopen(fileName, "rb");
     if (fp == NULL)

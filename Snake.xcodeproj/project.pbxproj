@@ -27,6 +27,7 @@
 		FAA0711E29D4132000AB2054 /* Advanced.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711D29D4132000AB2054 /* Advanced.vsh */; };
 		FAA0712029D4132B00AB2054 /* Advanced.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711F29D4132B00AB2054 /* Advanced.fsh */; };
 		FAA0712C29D5551500AB2054 /* perc60.obj in Resources */ = {isa = PBXBuildFile; fileRef = FAA0712B29D5551500AB2054 /* perc60.obj */; };
+		FAA0712F29D5E4D200AB2054 /* plane.obj in Resources */ = {isa = PBXBuildFile; fileRef = FAA0712E29D5E4D200AB2054 /* plane.obj */; };
 		FAAA346D29D0C7F70058FE13 /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAAA346C29D0C7F70058FE13 /* crate.jpg */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		FAA0712429D5401500AB2054 /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		FAA0712B29D5551500AB2054 /* perc60.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = perc60.obj; sourceTree = "<group>"; };
 		FAA0712D29D5633600AB2054 /* PillRotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PillRotation.h; sourceTree = "<group>"; };
+		FAA0712E29D5E4D200AB2054 /* plane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.obj; sourceTree = "<group>"; };
 		FAAA346C29D0C7F70058FE13 /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
 		FAF588EC29CD357F00E0515E /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		FAF588ED29CD363800E0515E /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		FA6F518E29CD7DC400B1B554 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAA0712E29D5E4D200AB2054 /* plane.obj */,
 				FAA0712B29D5551500AB2054 /* perc60.obj */,
 				FAAA346C29D0C7F70058FE13 /* crate.jpg */,
 				FA6F518C29CD7DBD00B1B554 /* Cube.obj */,
@@ -237,6 +240,7 @@
 			files = (
 				FA6F518D29CD7DBD00B1B554 /* Cube.obj in Resources */,
 				FAA0712C29D5551500AB2054 /* perc60.obj in Resources */,
+				FAA0712F29D5E4D200AB2054 /* plane.obj in Resources */,
 				FAA0711E29D4132000AB2054 /* Advanced.vsh in Resources */,
 				FAAA346D29D0C7F70058FE13 /* crate.jpg in Resources */,
 				FA34B13C299C175A0067FA19 /* Basic.vsh in Resources */,

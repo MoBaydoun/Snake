@@ -65,7 +65,7 @@ public:
         Utilities::PrintErrors("After glUniformMatrix4fv");
         glUniform3f((*renderer)["objectColor"], color.x, color.y, color.z);
         glUniform3f((*renderer)["lightColor"], 1.0f, 1.0f, 1.0f);
-        glUniform3f((*renderer)["lightPosition"], 0.0f, 0.0f, 2.0f);
+        glUniform3f((*renderer)["lightPosition"], 0.0f, 0.0f, -55.0f);
         auto cameraPosition = Camera::current->GetPosition();
         glUniform3f((*renderer)["cameraPosition"], cameraPosition.x, cameraPosition.y, cameraPosition.z);
         

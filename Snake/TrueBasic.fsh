@@ -2,14 +2,14 @@
 
 precision highp float;
 
-in vec4 v_color;
+in vec4 vColor;
 // ### receive additional vertex attribs
-out vec4 o_fragColor;
+out vec4 Color;
 
 // add uniforms from vertex shader or others (e.g., texture sampler)
 
 void main()
 {
-    o_fragColor = v_color;
+    Color = vColor;
 }
 

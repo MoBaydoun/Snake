@@ -14,6 +14,7 @@ public:
     T* GetComponent() const;
     
     void UpdateComponents() const;
+    void FixedUpdateComponents() const;
 private:
     std::map<std::type_index, Component*> components;
 };
@@ -46,5 +47,13 @@ void GameObject::UpdateComponents() const
     for (auto &c : components)
     {
         c.second->Update();
+    }
+}
+
+void GameObject::FixedUpdateComponents() const
+{
+    for (auto &c : components)
+    {
+        c.second->FixedUpdate();
     }
 }

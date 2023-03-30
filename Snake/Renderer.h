@@ -5,14 +5,14 @@
 class Renderer
 {
 public:
-    Renderer(const char *vertexShader, const char *fragmentShader, NSString *texName)
+    Renderer()
     {
-        const char *vShaderPath = Utilities::FindPath(vertexShader);
-        const char *fShaderPath = Utilities::FindPath(fragmentShader);
+        const char *vShaderPath = Utilities::FindPath("Advanced.vsh");
+        const char *fShaderPath = Utilities::FindPath("Advanced.fsh");
         char *vShaderStr = Utilities::ReadShaderFile(vShaderPath);
         char *fShaderStr = Utilities::ReadShaderFile(fShaderPath);
         this->program = Utilities::LoadProgram(vShaderStr, fShaderStr);
-        Utilities::LoadTexture(texName);
+        Utilities::LoadTexture(@"crate.jpg");
     }
     
     void SetUniform(const std::string& uniformName)

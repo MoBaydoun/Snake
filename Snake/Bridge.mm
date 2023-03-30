@@ -1,12 +1,12 @@
 #import "Bridge.h"
 
-#import "GameObject.h"
+#import "GameManager.h"
 
 
 @interface Bridge() {
     GLKView *glkView;
     std::chrono::time_point<std::chrono::steady_clock> lastTime;
-    GameObject *test;
+    float elapsedFrames;
 }
 
 @end
@@ -20,7 +20,7 @@
 
 - (void)dealloc
 {
-    glDeleteProgram(test->GetComponent<MeshRenderer>()->renderer->program);
+    
 }
 
 - (void)loadModels
@@ -39,20 +39,11 @@
     glkView = view;
     [EAGLContext setCurrentContext:view.context];
     
-    Camera::current = new Camera({ 0.0f, 0.0f, 10.0f }, { 0.0f, 0.0f, -5.0f }, (60.0f * M_PI) / 180.0f, 1.0f, 1.0f, 70.0f);
-    test = new GameObject();
-    test->AddComponent(new Transform());
-    const char *vname = "TrueBasic.vsh";
-    const char *fname = "TrueBasic.fsh";
-    const char *objname = "Cube.obj";
-    NSString *texName = @"crate.jpg";
-    Renderer *r = new Renderer(vname, fname, texName);
+    elapsedFrames = 0.0f;
     
-    Mesh *m = new Mesh(objname);
-    MeshRenderer *mr = new MeshRenderer();
-    mr->SetMesh(m);
-    mr->SetRenderer(r);
-    test->AddComponent(mr);
+    Camera::current = new Camera({ 0.0f, 0.0f, 10.0f }, { 0.0f, 0.0f, -5.0f }, (60.0f * M_PI) / 180.0f, 1.0f, 1.0f, 70.0f);
+    
+    GameManager::SceneSetup();
     
     Moving = false;
     Rotating = false;
@@ -74,8 +65,20 @@
     //projection matrix
     float aspectRatio = (float) glkView.drawableWidth / (float) glkView.drawableHeight;
     Camera::current->SetAspectRatio(aspectRatio);
-    test->UpdateComponents();
     
+    GameManager::UpdateGameObjects();
+    
+    if (elapsedFrames >= 30.0f)
+    {
+        [self fixedUpdate];
+        elapsedFrames = 0.0f;
+    }
+    elapsedFrames += 1.0f;
+    
+}
+- (void)fixedUpdate
+{
+    GameManager::FixedUpdateGameObjects();
 }
 
 - (void)draw:(CGRect)drawRect
@@ -83,8 +86,7 @@
     glViewport(0, 0, (int) glkView.drawableWidth, (int) glkView.drawableHeight);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // draw vertices here
-    auto mr = test->GetComponent<MeshRenderer>();
-    mr->Draw();
+    GameManager::DrawGameObjects();
 }
 
 @end

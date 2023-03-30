@@ -24,6 +24,8 @@
 		FAA0711829D2743400AB2054 /* Passthrough.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711729D2743400AB2054 /* Passthrough.fsh */; };
 		FAA0711A29D3EB9400AB2054 /* TrueBasic.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711929D3EB9400AB2054 /* TrueBasic.vsh */; };
 		FAA0711C29D3EBA500AB2054 /* TrueBasic.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711B29D3EBA500AB2054 /* TrueBasic.fsh */; };
+		FAA0711E29D4132000AB2054 /* Advanced.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711D29D4132000AB2054 /* Advanced.vsh */; };
+		FAA0712029D4132B00AB2054 /* Advanced.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FAA0711F29D4132B00AB2054 /* Advanced.fsh */; };
 		FAAA346D29D0C7F70058FE13 /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAAA346C29D0C7F70058FE13 /* crate.jpg */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,11 @@
 		FAA0711729D2743400AB2054 /* Passthrough.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Passthrough.fsh; sourceTree = "<group>"; };
 		FAA0711929D3EB9400AB2054 /* TrueBasic.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrueBasic.vsh; sourceTree = "<group>"; };
 		FAA0711B29D3EBA500AB2054 /* TrueBasic.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrueBasic.fsh; sourceTree = "<group>"; };
+		FAA0711D29D4132000AB2054 /* Advanced.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Advanced.vsh; sourceTree = "<group>"; };
+		FAA0711F29D4132B00AB2054 /* Advanced.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Advanced.fsh; sourceTree = "<group>"; };
+		FAA0712229D53C0A00AB2054 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		FAA0712329D53C3000AB2054 /* MeshRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshRenderer.h; sourceTree = "<group>"; };
+		FAA0712429D5401500AB2054 /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		FAAA346C29D0C7F70058FE13 /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
 		FAF588EC29CD357F00E0515E /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		FAF588ED29CD363800E0515E /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -80,6 +87,8 @@
 				FAA0711729D2743400AB2054 /* Passthrough.fsh */,
 				FAA0711929D3EB9400AB2054 /* TrueBasic.vsh */,
 				FAA0711B29D3EBA500AB2054 /* TrueBasic.fsh */,
+				FAA0711D29D4132000AB2054 /* Advanced.vsh */,
+				FAA0711F29D4132B00AB2054 /* Advanced.fsh */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -87,6 +96,7 @@
 		FA34B142299C1A190067FA19 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				FAA0712129D53BFB00AB2054 /* Components */,
 				FA1D892129CA26780034E011 /* Camera.h */,
 				FA1D891C29CA26780034E011 /* DrawCommands.h */,
 				FA1D891829CA26770034E011 /* Includes.h */,
@@ -96,6 +106,7 @@
 				FAF588ED29CD363800E0515E /* Component.h */,
 				FA6F518829CD53AB00B1B554 /* Mesh.h */,
 				FA6F518929CD5F2100B1B554 /* Renderer.h */,
+				FAA0712429D5401500AB2054 /* GameManager.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -134,6 +145,15 @@
 				FA34B138299C14E20067FA19 /* Snake-Bridging-Header.h */,
 			);
 			path = Snake;
+			sourceTree = "<group>";
+		};
+		FAA0712129D53BFB00AB2054 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FAA0712229D53C0A00AB2054 /* Transform.h */,
+				FAA0712329D53C3000AB2054 /* MeshRenderer.h */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		FAFBE484299C1BE400A678A5 /* Source */ = {
@@ -207,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6F518D29CD7DBD00B1B554 /* Cube.obj in Resources */,
+				FAA0711E29D4132000AB2054 /* Advanced.vsh in Resources */,
 				FAAA346D29D0C7F70058FE13 /* crate.jpg in Resources */,
 				FA34B13C299C175A0067FA19 /* Basic.vsh in Resources */,
 				FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */,
@@ -215,6 +236,7 @@
 				FAA0711829D2743400AB2054 /* Passthrough.fsh in Resources */,
 				FAA0711629D2742B00AB2054 /* Passthrough.vsh in Resources */,
 				FA34B13E299C17690067FA19 /* Basic.fsh in Resources */,
+				FAA0712029D4132B00AB2054 /* Advanced.fsh in Resources */,
 				FAA0711A29D3EB9400AB2054 /* TrueBasic.vsh in Resources */,
 				FAA0711C29D3EBA500AB2054 /* TrueBasic.fsh in Resources */,
 			);

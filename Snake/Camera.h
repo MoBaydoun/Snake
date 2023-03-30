@@ -18,6 +18,11 @@ public:
         UpdateViewMatrix();
     }
     
+    const GLKVector3& GetPosition() const
+    {
+        return position;
+    }
+    
     void SetTarget(GLKVector3 target)
     {
         this->target = target;

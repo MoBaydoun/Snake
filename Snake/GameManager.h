@@ -117,6 +117,22 @@ void GameManager::CollisionChecker() {
         pill->x = GetRandomCoord();
         pill->y = GetRandomCoord();
         pill->UpdatePos();
+        
+        auto seg = AddGameObject();
+        seg->AddComponent(new GridComponent());
+        seg->GetComponent<GridComponent>()->x = snake->gc->x;
+        seg->GetComponent<GridComponent>()->y = snake->gc->y;
+        seg->GetComponent<GridComponent>()->UpdatePos();
+        
+        Mesh *m = new Mesh("Cube.obj");
+        MeshRenderer *mr = new MeshRenderer();
+        mr->SetColor({0.23f, 1.0f, 0.11f});
+        mr->SetMesh(m);
+        mr->SetRenderer(new Renderer());
+        seg->AddComponent(mr);
+        
+        snake->body.push(seg);
+        snake->justExpanded = true;
     }
 }
 

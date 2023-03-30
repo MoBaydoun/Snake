@@ -12,6 +12,8 @@ public:
     void FixedUpdate() override;
     int dir = 1;
     GridComponent *gc;
+    std::queue<GameObject*> body;
+    bool justExpanded = false;
 private:
     bool isMoving = true;
 };
@@ -29,6 +31,16 @@ void SnakeHead::Awake() {
 }
 
 void SnakeHead::FixedUpdate() {
+    if(!justExpanded && !body.empty()) {
+        auto tail = body.front();
+        auto tgc = body.front()->GetComponent<GridComponent>();
+        tgc->x = gc->x;
+        tgc->y = gc->y;
+        tgc->UpdatePos();
+        body.pop();
+        body.push(tail);
+    }
+    
     if(isMoving) {
         switch(dir) {
             case 0:
@@ -45,6 +57,8 @@ void SnakeHead::FixedUpdate() {
                 break;
         }
     }
+    
+    justExpanded = false;
     
     gc->UpdatePos();
 }

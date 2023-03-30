@@ -31,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B5280B129D56ADF00A8DB35 /* SnakeHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnakeHead.h; sourceTree = "<group>"; };
+		6B5280B229D57A8600A8DB35 /* GridComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridComponent.h; sourceTree = "<group>"; };
 		FA1D891829CA26770034E011 /* Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Includes.h; sourceTree = "<group>"; };
 		FA1D891A29CA26770034E011 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		FA1D891B29CA26780034E011 /* Utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utilities.mm; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 				FAA0712229D53C0A00AB2054 /* Transform.h */,
 				FAA0712329D53C3000AB2054 /* MeshRenderer.h */,
 				FAA0712D29D5633600AB2054 /* PillRotation.h */,
+				6B5280B129D56ADF00A8DB35 /* SnakeHead.h */,
+				6B5280B229D57A8600A8DB35 /* GridComponent.h */,
 			);
 			name = Components;
 			sourceTree = "<group>";

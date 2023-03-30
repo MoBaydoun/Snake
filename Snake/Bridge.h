@@ -14,5 +14,6 @@
 - (void)loadModels;
 - (void)update;
 - (void)draw:(CGRect)drawRect;
+- (void)setDir:(int)dir;
 
 @end

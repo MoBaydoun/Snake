@@ -89,5 +89,9 @@
     GameManager::DrawGameObjects();
 }
 
+- (void)setDir:(int)dir {
+    GameManager::SetDirection(dir, elapsedFrames);
+}
+
 @end
 

@@ -17,44 +17,44 @@ public:
     static void DrawGameObjects();
     static GameObject* AddGameObject();
     static void SetDirection(int dir, float& elapsedFrames);
+    static int score;
 private:
     static std::vector<GameObject*> objects;
     static SnakeHead* snake;
+    static GridComponent* pill;
+    static float GetRandomCoord();
+    static void CollisionChecker();
 };
 
 std::vector<GameObject*> GameManager::objects;
 SnakeHead* GameManager::snake;
+GridComponent* GameManager::pill;
+
+int GameManager::score = 0;
 
 void GameManager::SceneSetup()
 {
-    // create objects n shit here
-//    auto test = AddGameObject();
-//    test->AddComponent(new SnakeHead());
-//    test->GetComponent<GridComponent>()->UpdatePos();
-//
-//    auto test2 = AddGameObject();
-//    test2->AddComponent(new SnakeHead());
-//    test2->GetComponent<GridComponent>()->x = 10.0f;
-//    test2->GetComponent<GridComponent>()->UpdatePos();
+    auto snake = AddGameObject();
+    snake->AddComponent(new SnakeHead());
+    snake->GetComponent<GridComponent>()->x = 10.0f;
+    snake->GetComponent<GridComponent>()->y = 10.0f;
+    snake->GetComponent<GridComponent>()->UpdatePos();
+    GameManager::snake = snake->GetComponent<SnakeHead>();
     
-    auto test3 = AddGameObject();
-    test3->AddComponent(new SnakeHead());
-    test3->GetComponent<GridComponent>()->x = 10.0f;
-    test3->GetComponent<GridComponent>()->y = 10.0f;
-    test3->GetComponent<GridComponent>()->UpdatePos();
-    GameManager::snake = test3->GetComponent<SnakeHead>();
-    
-//    auto test2 = AddGameObject();
-//    test2->AddComponent(new Transform());
-//    auto transform1 = test2->GetComponent<Transform>();
-//    transform1->position = { -2.0f, 0.0f, -30.0f };
-//    test2->AddComponent(new PillRotation());
-//    Mesh *m1 = new Mesh("perc60.obj");
-//    MeshRenderer *mr2 = new MeshRenderer();
-//    mr2->SetColor({1.0f, 1.0f, 1.0f});
-//    mr2->SetMesh(m1);
-//    mr2->SetRenderer(new Renderer());
-//    test2->AddComponent(mr2);
+    auto pill = AddGameObject();
+    pill->AddComponent(new GridComponent());
+    auto pgc = pill->GetComponent<GridComponent>();
+    pgc->x = GetRandomCoord();
+    pgc->y = GetRandomCoord();
+    pgc->UpdatePos();
+    pill->AddComponent(new PillRotation());
+    Mesh *m1 = new Mesh("perc60.obj");
+    MeshRenderer *mr2 = new MeshRenderer();
+    mr2->SetColor({1.0f, 1.0f, 1.0f});
+    mr2->SetMesh(m1);
+    mr2->SetRenderer(new Renderer());
+    pill->AddComponent(mr2);
+    GameManager::pill = pgc;
 }
 
 void GameManager::UpdateGameObjects()
@@ -71,6 +71,7 @@ void GameManager::FixedUpdateGameObjects()
     {
         go->FixedUpdateComponents();
     }
+    GameManager::CollisionChecker();
 }
 
 void GameManager::DrawGameObjects()
@@ -93,4 +94,17 @@ void GameManager::SetDirection(int dir, float& elapsedFrames) {
         snake->dir = dir;
         elapsedFrames = 30.0f;
     }
+}
+
+void GameManager::CollisionChecker() {
+    if(snake->gc->x == pill->x && snake->gc->y == pill->y) {
+        ++score;
+        pill->x = GetRandomCoord();
+        pill->y = GetRandomCoord();
+        pill->UpdatePos();
+    }
+}
+
+float GameManager::GetRandomCoord() {
+    return (float) (std::rand() % 21);
 }

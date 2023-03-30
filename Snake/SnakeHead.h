@@ -11,8 +11,8 @@ public:
     void Awake() override;
     void FixedUpdate() override;
     int dir = 1;
-private:
     GridComponent *gc;
+private:
     bool isMoving = true;
 };
 

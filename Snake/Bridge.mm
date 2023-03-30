@@ -93,5 +93,9 @@
     GameManager::SetDirection(dir, elapsedFrames);
 }
 
+- (int)getScore {
+    return GameManager::score;
+}
+
 @end
 

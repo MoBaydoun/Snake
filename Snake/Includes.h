@@ -10,6 +10,7 @@
 #include <sstream>
 #include <string>
 #include <typeindex>
+#include <random>
 
 #include <GLKit/GLKit.h>
 #include <OpenGLES/ES3/gl.h>

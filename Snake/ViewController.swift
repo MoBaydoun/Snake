@@ -3,6 +3,7 @@ import GLKit
 extension ViewController: GLKViewControllerDelegate {
     func glkViewControllerUpdate(_ controller: GLKViewController) {
         bridge.update();
+        scoreLabel.text = "Score: " + String(bridge.getScore());
     }
 }
 
@@ -10,6 +11,7 @@ class ViewController: GLKViewController {
     
     private var context: EAGLContext?
     private var bridge: Bridge!
+    private var scoreLabel: UILabel!
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -42,6 +44,11 @@ class ViewController: GLKViewController {
         let swipeD = UISwipeGestureRecognizer(target: self, action: #selector(self.moveDirection(_:)))
         swipeD.direction = .down;
         view.addGestureRecognizer(swipeD);
+        
+        scoreLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 90, height: 20))
+        scoreLabel.textColor = .white;
+        scoreLabel.numberOfLines = 0;
+        view.addSubview(scoreLabel);
     }
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {

@@ -131,6 +131,16 @@ void GameManager::SetDirection(int dir, float& elapsedFrames) {
     }
 }
 
+/** Snake dies when colliding with boundaries or a part of its body
+*/
+void GameManager::KillSnake() {
+    score = 0;
+    snake->GetComponent<GridComponent>()->x = 10.0f;
+    snake->GetComponent<GridComponent>()->y = 10.0f;
+    
+    /** Then make the snake explode and have 1 head again */
+}
+
 /** Checks for collisions.
  */
 
@@ -157,6 +167,12 @@ void GameManager::CollisionChecker() {
         snake->body.push(seg);
         snake->justExpanded = true;
     }
+    
+    if(snake->gc->x > || && snake->gc->y > 20 || snake->gc->x < 0 || snake->gc->y < 0) {
+        KillSnake();
+    }
+    
+    
 }
 
 /** Gets a random coordinate from the playing field.

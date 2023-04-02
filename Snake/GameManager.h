@@ -26,6 +26,7 @@ private:
     static GridComponent* pill;
     static float GetRandomCoord();
     static void CollisionChecker();
+    static void KillSnake();
 };
 
 std::vector<GameObject*> GameManager::objects;
@@ -137,8 +138,12 @@ void GameManager::KillSnake() {
     score = 0;
     snake->GetComponent<GridComponent>()->x = 10.0f;
     snake->GetComponent<GridComponent>()->y = 10.0f;
+    snake->GetComponent<GridComponent>()->UpdatePos();
     
-    /** Then make the snake explode and have 1 head again */
+    std::queue<GameObject*> empty;
+    std::swap(&snake->body, empty);
+    
+    /** I have never written in C++ in my whole entire life */
 }
 
 /** Checks for collisions.
@@ -172,7 +177,14 @@ void GameManager::CollisionChecker() {
         KillSnake();
     }
     
-    
+    std::queue<GameObject*> copyBody = snake->body;
+    while (!copyBody.empty()) {
+        if (copyBody.front()->x == snake->gc->x && copyBody.front()->y == snake->gc->y) {
+            KillSnake();
+        } else {
+            copyBody.pop();
+        }
+    }
 }
 
 /** Gets a random coordinate from the playing field.

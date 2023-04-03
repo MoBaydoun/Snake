@@ -12,6 +12,8 @@ class ViewController: GLKViewController {
     private var context: EAGLContext?
     private var bridge: Bridge!
     private var scoreLabel: UILabel!
+    private var gameOverLabel: UILabel!
+    private var resetButton: UIButton!
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -50,6 +52,20 @@ class ViewController: GLKViewController {
         scoreLabel.textColor = .white;
         scoreLabel.numberOfLines = 0;
         view.addSubview(scoreLabel);
+        
+        
+        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 20))
+        gameOverLabel.center.x = view.center.x;
+        gameOverLabel.textColor = .white;
+        gameOverLabel.numberOfLines = 0;
+        gameOverLabel.isHidden = true;
+        view.addSubview(gameOverLabel);
+        
+        resetButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40));
+        resetButton.addTarget(self, action: #selector(self.resetGame(_:)), for: .touchUpInside);
+        resetButton.setTitle("Play Again", for: .normal);
+        resetButton.isHidden = true;
+        view.addSubview(resetButton); 
     }
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
@@ -73,4 +89,7 @@ class ViewController: GLKViewController {
         }
     }
     
+    @objc func resetGame(_ sender: UIButton) {
+        
+    }
 }

@@ -20,6 +20,7 @@ public:
     static GameObject* AddGameObject();
     static void SetDirection(int dir, float& elapsedFrames);
     static int score;
+    static bool isGameOver;
 private:
     static std::vector<GameObject*> objects;
     static SnakeHead* snake;

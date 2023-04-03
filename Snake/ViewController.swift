@@ -15,7 +15,7 @@ class ViewController: GLKViewController {
     private var scoreLabel: UILabel!
     private var gameOverLabel: UILabel!
     private var resetButton: UIButton!
-    private var isGameOver: Bool
+    private var isGameOver: Bool!
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)

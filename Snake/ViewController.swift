@@ -16,6 +16,7 @@ class ViewController: GLKViewController {
     private var gameOverLabel: UILabel!
     private var resetButton: UIButton!
     private var isGameOver: Bool!
+    private var timer: Timer?
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -32,7 +33,12 @@ class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         setupGL();
-        
+
+        timer = Timer();
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            gameOver();
+        })
+
         let swipeR = UISwipeGestureRecognizer(target: self, action: #selector(self.moveDirection(_:)))
         swipeR.direction = .right;
         view.addGestureRecognizer(swipeR);

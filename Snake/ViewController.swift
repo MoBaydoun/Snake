@@ -4,6 +4,7 @@ extension ViewController: GLKViewControllerDelegate {
     func glkViewControllerUpdate(_ controller: GLKViewController) {
         bridge.update();
         scoreLabel.text = "Score: " + String(bridge.getScore());
+        isGameOver = bridge.getIsGameOver();
     }
 }
 
@@ -14,6 +15,7 @@ class ViewController: GLKViewController {
     private var scoreLabel: UILabel!
     private var gameOverLabel: UILabel!
     private var resetButton: UIButton!
+    private var isGameOver: Bool
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -53,7 +55,6 @@ class ViewController: GLKViewController {
         scoreLabel.numberOfLines = 0;
         view.addSubview(scoreLabel);
         
-        
         gameOverLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 20))
         gameOverLabel.center.x = view.center.x;
         gameOverLabel.textColor = .white;
@@ -86,6 +87,13 @@ class ViewController: GLKViewController {
                 bridge.setDir(1)
             default:
                 return
+        }
+    }
+
+    private func gameOver() {
+        if (isGameOver) {
+            gameOverLabel.isHidden = false;
+            resetButton.isHidden = false;
         }
     }
     

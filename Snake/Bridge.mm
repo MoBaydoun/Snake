@@ -117,5 +117,10 @@ Sets up the view.
     return GameManager::isGameOver;
 }
 
+/** Resets the game */
+- (void)resetGame {
+    GameManager::SceneSetup();
+}
+
 @end
 

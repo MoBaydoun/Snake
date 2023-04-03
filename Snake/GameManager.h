@@ -34,6 +34,7 @@ SnakeHead* GameManager::snake;
 GridComponent* GameManager::pill;
 
 int GameManager::score = 0;
+bool GameManager::isGameOver = false;
 
 /** Sets up scene. */
 
@@ -135,12 +136,11 @@ void GameManager::SetDirection(int dir, float& elapsedFrames) {
 /** Snake dies when colliding with boundaries or a part of its body
 */
 void GameManager::KillSnake() {
+    isGameOver = true;
     for (int i; i < objects.size(); ++i) {
         free(objects[i]);
     }
     objects.clear();
-    
-    /** I have never written in C++ in my whole entire life */
 }
 
 /** Checks for collisions.
@@ -176,7 +176,7 @@ void GameManager::CollisionChecker() {
     
     std::queue<GameObject*> copyBody = snake->body;
     while (!copyBody.empty()) {
-        if (copyBody.GetComponent<GridComponent>().front()->x == snake->gc->x && copyBody.GetComponent<GridComponent>().front()->y == snake->gc->y) {
+        if (copyBody.front()->GetComponent<GridComponent>()->x == snake->gc->x && copyBody.front()->GetComponent<GridComponent>()->y == snake->gc->y) {
             KillSnake();
         } else {
             copyBody.pop();

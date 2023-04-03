@@ -135,13 +135,10 @@ void GameManager::SetDirection(int dir, float& elapsedFrames) {
 /** Snake dies when colliding with boundaries or a part of its body
 */
 void GameManager::KillSnake() {
-    score = 0;
-    snake->GetComponent<GridComponent>()->x = 10.0f;
-    snake->GetComponent<GridComponent>()->y = 10.0f;
-    snake->GetComponent<GridComponent>()->UpdatePos();
-    
-    std::queue<GameObject*> empty;
-    std::swap(&snake->body, empty);
+    for (int i; i < objects.size(); ++i) {
+        free(objects[i]);
+    }
+    objects.clear();
     
     /** I have never written in C++ in my whole entire life */
 }

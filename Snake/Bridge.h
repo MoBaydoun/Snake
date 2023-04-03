@@ -16,5 +16,6 @@
 - (void)draw:(CGRect)drawRect;
 - (void)setDir:(int)dir;
 - (int)getScore;
+- (bool)getIsGameOver;
 
 @end

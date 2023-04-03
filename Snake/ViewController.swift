@@ -55,7 +55,7 @@ class ViewController: GLKViewController {
         
         
         gameOverLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 20))
-        gameOverLabel = scoreLabel.center.x = view.center.x;
+        gameOverLabel.center.x = view.center.x;
         gameOverLabel.textColor = .white;
         gameOverLabel.numberOfLines = 0;
         gameOverLabel.isHidden = true;

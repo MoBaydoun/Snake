@@ -98,6 +98,6 @@ class ViewController: GLKViewController {
     }
     
     @objc func resetGame(_ sender: UIButton) {
-        
+        setupGL();
     }
 }

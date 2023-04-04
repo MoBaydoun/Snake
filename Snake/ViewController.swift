@@ -105,6 +105,7 @@ class ViewController: GLKViewController {
     
     @objc func resetGame(_ sender: UIButton) {
         bridge.resetGame();
+        gameOverLabel.isHidden = false;
         resetButton.isHidden = true;
     }
 }

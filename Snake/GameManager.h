@@ -41,6 +41,9 @@ bool GameManager::isGameOver = false;
 
 void GameManager::SceneSetup()
 {
+    score = 0;
+    isGameOver = false;
+    
     auto snake = AddGameObject();
     snake->AddComponent(new SnakeHead());
     snake->GetComponent<GridComponent>()->x = 10.0f;
@@ -148,6 +151,8 @@ void GameManager::KillSnake() {
  */
 
 void GameManager::CollisionChecker() {
+    if(isGameOver)
+        return;
     if(snake->gc->x == pill->x && snake->gc->y == pill->y) {
         ++score;
         pill->x = GetRandomCoord();
@@ -175,10 +180,11 @@ void GameManager::CollisionChecker() {
         std::queue<GameObject*> copyBody = snake->body;
         while (!copyBody.empty()) {
             if (copyBody.front()->GetComponent<GridComponent>()->x == snake->gc->x && copyBody.front()->GetComponent<GridComponent>()->y == snake->gc->y) {
-                printf("hehe snake dead");
+                //printf("hehe snake dead");
                 KillSnake();
+                return;
             } else {
-                printf("hehe snake pop");
+                //printf("hehe snake pop");
                 copyBody.pop();
             }
         }

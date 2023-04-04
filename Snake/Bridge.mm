@@ -111,6 +111,16 @@ Sets up the view.
 - (int)getScore {
     return GameManager::score;
 }
+/** Returns the isGameOver bool from the game manager.
+ @return GameManager::isGameOver */
+- (bool)getIsGameOver {
+    return GameManager::isGameOver;
+}
+
+/** Resets the game */
+- (void)resetGame {
+    GameManager::SceneSetup();
+}
 
 @end
 

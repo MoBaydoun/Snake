@@ -20,12 +20,14 @@ public:
     static GameObject* AddGameObject();
     static void SetDirection(int dir, float& elapsedFrames);
     static int score;
+    static bool isGameOver;
 private:
     static std::vector<GameObject*> objects;
     static SnakeHead* snake;
     static GridComponent* pill;
     static float GetRandomCoord();
     static void CollisionChecker();
+    static void KillSnake();
 };
 
 std::vector<GameObject*> GameManager::objects;
@@ -33,11 +35,15 @@ SnakeHead* GameManager::snake;
 GridComponent* GameManager::pill;
 
 int GameManager::score = 0;
+bool GameManager::isGameOver = false;
 
 /** Sets up scene. */
 
 void GameManager::SceneSetup()
 {
+    score = 0;
+    isGameOver = false;
+    
     auto snake = AddGameObject();
     snake->AddComponent(new SnakeHead());
     snake->GetComponent<GridComponent>()->x = 10.0f;
@@ -131,10 +137,22 @@ void GameManager::SetDirection(int dir, float& elapsedFrames) {
     }
 }
 
+/** Snake dies when colliding with boundaries or a part of its body
+*/
+void GameManager::KillSnake() {
+    isGameOver = true;
+    for (int i; i < objects.size(); ++i) {
+        free(objects[i]);
+    }
+    objects.clear();
+}
+
 /** Checks for collisions.
  */
 
 void GameManager::CollisionChecker() {
+    if(isGameOver)
+        return;
     if(snake->gc->x == pill->x && snake->gc->y == pill->y) {
         ++score;
         pill->x = GetRandomCoord();
@@ -156,6 +174,20 @@ void GameManager::CollisionChecker() {
         
         snake->body.push(seg);
         snake->justExpanded = true;
+    } else if (snake->gc->x > 20 || snake->gc->y > 20 || snake->gc->x < 0 || snake->gc->y < 0) {
+        KillSnake();
+    } else {
+        std::queue<GameObject*> copyBody = snake->body;
+        while (!copyBody.empty()) {
+            if (copyBody.front()->GetComponent<GridComponent>()->x == snake->gc->x && copyBody.front()->GetComponent<GridComponent>()->y == snake->gc->y) {
+                //printf("hehe snake dead");
+                KillSnake();
+                return;
+            } else {
+                //printf("hehe snake pop");
+                copyBody.pop();
+            }
+        }
     }
 }
 

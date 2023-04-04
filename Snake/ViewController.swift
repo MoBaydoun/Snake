@@ -4,6 +4,7 @@ extension ViewController: GLKViewControllerDelegate {
     func glkViewControllerUpdate(_ controller: GLKViewController) {
         bridge.update();
         scoreLabel.text = "Score: " + String(bridge.getScore());
+        isGameOver = bridge.getIsGameOver();
     }
 }
 
@@ -14,6 +15,8 @@ class ViewController: GLKViewController {
     private var scoreLabel: UILabel!
     private var gameOverLabel: UILabel!
     private var resetButton: UIButton!
+    private var isGameOver: Bool!
+    private var timer: Timer?
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -30,7 +33,12 @@ class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         setupGL();
-        
+
+        timer = Timer();
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.gameOver();
+        })
+
         let swipeR = UISwipeGestureRecognizer(target: self, action: #selector(self.moveDirection(_:)))
         swipeR.direction = .right;
         view.addGestureRecognizer(swipeR);
@@ -53,15 +61,14 @@ class ViewController: GLKViewController {
         scoreLabel.numberOfLines = 0;
         view.addSubview(scoreLabel);
         
-        
-        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 20))
+        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 100, width: 90, height: 20))
         gameOverLabel.center.x = view.center.x;
         gameOverLabel.textColor = .white;
         gameOverLabel.numberOfLines = 0;
         gameOverLabel.isHidden = true;
         view.addSubview(gameOverLabel);
         
-        resetButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40));
+        resetButton = UIButton(frame: CGRect(x: 200, y: 200, width: 100, height: 40));
         resetButton.addTarget(self, action: #selector(self.resetGame(_:)), for: .touchUpInside);
         resetButton.setTitle("Play Again", for: .normal);
         resetButton.isHidden = true;
@@ -88,8 +95,17 @@ class ViewController: GLKViewController {
                 return
         }
     }
+
+    private func gameOver() {
+        if (isGameOver) {
+            gameOverLabel.isHidden = false;
+            resetButton.isHidden = false;
+        }
+    }
     
     @objc func resetGame(_ sender: UIButton) {
-        
+        bridge.resetGame();
+        gameOverLabel.isHidden = true;
+        resetButton.isHidden = true;
     }
 }

@@ -169,16 +169,16 @@ void GameManager::CollisionChecker() {
         
         snake->body.push(seg);
         snake->justExpanded = true;
+    } else if (snake->gc->x > 20 || snake->gc->y > 20 || snake->gc->x < 0 || snake->gc->y < 0) {
+        KillSnake();
     } else {
-        if(snake->gc->x > 20 || snake->gc->y > 20 || snake->gc->x < 0 || snake->gc->y < 0) {
-            KillSnake();
-        }
-        
         std::queue<GameObject*> copyBody = snake->body;
         while (!copyBody.empty()) {
             if (copyBody.front()->GetComponent<GridComponent>()->x == snake->gc->x && copyBody.front()->GetComponent<GridComponent>()->y == snake->gc->y) {
+                printf("hehe snake dead");
                 KillSnake();
             } else {
+                printf("hehe snake pop");
                 copyBody.pop();
             }
         }

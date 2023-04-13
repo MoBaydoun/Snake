@@ -177,9 +177,12 @@ void GameManager::CollisionChecker() {
         
         auto seg = AddGameObject();
         seg->AddComponent(new GridComponent());
-        seg->GetComponent<GridComponent>()->x = snake->gc->x;
-        seg->GetComponent<GridComponent>()->y = snake->gc->y;
-        seg->GetComponent<GridComponent>()->UpdatePos();
+        GridComponent *segc = seg->GetComponent<GridComponent>();
+        segc->x = snake->gc->x;
+        segc->y = snake->gc->y;
+        segc->UpdatePos();
+        segc->t->scale = {0.0f, 0.0f, 0.0f};
+        segc->t->rotation.x = M_PI / 2.0f;
         
         Mesh *m = new Mesh("Cube.obj");
         MeshRenderer *mr = new MeshRenderer();
@@ -188,12 +191,12 @@ void GameManager::CollisionChecker() {
         mr->SetRenderer(new Renderer());
         seg->AddComponent(mr);
         
-        snake->body.push(seg);
+        snake->body.push_back(seg);
         snake->justExpanded = true;
     } else if (snake->gc->x > 20 || snake->gc->y > 20 || snake->gc->x < 0 || snake->gc->y < 0) {
         KillSnake();
     } else {
-        std::queue<GameObject*> copyBody = snake->body;
+        std::deque<GameObject*> copyBody = snake->body;
         while (!copyBody.empty()) {
             if (copyBody.front()->GetComponent<GridComponent>()->x == snake->gc->x && copyBody.front()->GetComponent<GridComponent>()->y == snake->gc->y) {
                 //printf("hehe snake dead");
@@ -201,7 +204,7 @@ void GameManager::CollisionChecker() {
                 return;
             } else {
                 //printf("hehe snake pop");
-                copyBody.pop();
+                copyBody.pop_front();
             }
         }
     }

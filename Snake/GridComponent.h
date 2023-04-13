@@ -9,7 +9,6 @@ public:
     void Awake() override;
     void UpdatePos();
     float x = 0, y = 0;
-private:
     Transform *t;
 };
 

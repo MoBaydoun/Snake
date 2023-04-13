@@ -201,5 +201,5 @@ void Mesh::LoadObjModelV2(const char *objName)
     {
         this->indices.push_back(i);
     }
-    std::cout << "SMD" << std::endl;
+    //std::cout << "SMD" << std::endl;
 }

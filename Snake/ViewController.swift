@@ -1,10 +1,15 @@
 import GLKit
+import AVFoundation
 
 extension ViewController: GLKViewControllerDelegate {
     func glkViewControllerUpdate(_ controller: GLKViewController) {
         bridge.update();
         scoreLabel.text = "Score: " + String(bridge.getScore());
         isGameOver = bridge.getIsGameOver();
+        if (bridge.getPlaySound()) {
+            bridge.setPlaySound(false)
+            playSound()
+        }
     }
 }
 
@@ -17,6 +22,7 @@ class ViewController: GLKViewController {
     private var resetButton: UIButton!
     private var isGameOver: Bool!
     private var timer: Timer?
+    private var player : AVAudioPlayer?
     
     private func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -107,5 +113,20 @@ class ViewController: GLKViewController {
         bridge.resetGame();
         gameOverLabel.isHidden = true;
         resetButton.isHidden = true;
+    }
+    
+    private func playSound() {
+        guard let soundFileURL = Bundle.main.url(forResource: "pill", withExtension: "mp3") else {
+            return
+        }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: soundFileURL)
+            player?.play()
+            print("got to end of do")
+        } catch {
+            print("i shidded my pants")
+        }
     }
 }

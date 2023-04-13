@@ -18,5 +18,7 @@
 - (void)resetGame;
 - (int)getScore;
 - (bool)getIsGameOver;
+- (bool)getPlaySound;
+- (void)setPlaySound:(bool)yn;
 
 @end

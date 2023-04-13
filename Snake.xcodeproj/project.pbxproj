@@ -35,6 +35,7 @@
 		FACC00FD29E7A43300207BD0 /* turnleft.obj in Resources */ = {isa = PBXBuildFile; fileRef = FACC00F829E7A43300207BD0 /* turnleft.obj */; };
 		FACC00FE29E7A43300207BD0 /* turnright.obj in Resources */ = {isa = PBXBuildFile; fileRef = FACC00F929E7A43300207BD0 /* turnright.obj */; };
 		FACC00FF29E7A43300207BD0 /* body.obj in Resources */ = {isa = PBXBuildFile; fileRef = FACC00FA29E7A43300207BD0 /* body.obj */; };
+		FACC010229E7E0DE00207BD0 /* pill.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FACC010129E7E0DE00207BD0 /* pill.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		FACC00F829E7A43300207BD0 /* turnleft.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = turnleft.obj; sourceTree = "<group>"; };
 		FACC00F929E7A43300207BD0 /* turnright.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = turnright.obj; sourceTree = "<group>"; };
 		FACC00FA29E7A43300207BD0 /* body.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = body.obj; sourceTree = "<group>"; };
+		FACC010129E7E0DE00207BD0 /* pill.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pill.mp3; sourceTree = "<group>"; };
 		FAF588EC29CD357F00E0515E /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		FAF588ED29CD363800E0515E /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 		FA734732299B7E7500D68127 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				FACC010029E7E0D300207BD0 /* Sounds */,
 				FAFBE484299C1BE400A678A5 /* Source */,
 				FA34B142299C1A190067FA19 /* Headers */,
 				FA34B140299C19B10067FA19 /* Shaders */,
@@ -184,6 +187,14 @@
 				6B5280B229D57A8600A8DB35 /* GridComponent.h */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		FACC010029E7E0D300207BD0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FACC010129E7E0DE00207BD0 /* pill.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		FAFBE484299C1BE400A678A5 /* Source */ = {
@@ -271,6 +282,7 @@
 				FACC00F529E7A33500207BD0 /* white.jpg in Resources */,
 				FAA0711829D2743400AB2054 /* Passthrough.fsh in Resources */,
 				FACC00FD29E7A43300207BD0 /* turnleft.obj in Resources */,
+				FACC010229E7E0DE00207BD0 /* pill.mp3 in Resources */,
 				FAA0711629D2742B00AB2054 /* Passthrough.vsh in Resources */,
 				FA34B13E299C17690067FA19 /* Basic.fsh in Resources */,
 				FAA0712029D4132B00AB2054 /* Advanced.fsh in Resources */,

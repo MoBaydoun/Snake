@@ -21,6 +21,7 @@ public:
     static void SetDirection(int dir, float& elapsedFrames);
     static int score;
     static bool isGameOver;
+    static bool playSound;
 private:
     static std::vector<GameObject*> objects;
     static SnakeHead* snake;
@@ -33,6 +34,7 @@ private:
 std::vector<GameObject*> GameManager::objects;
 SnakeHead* GameManager::snake;
 GridComponent* GameManager::pill;
+bool GameManager::playSound = false;
 
 int GameManager::score = 0;
 bool GameManager::isGameOver = false;
@@ -158,6 +160,7 @@ void GameManager::CollisionChecker() {
         pill->x = GetRandomCoord();
         pill->y = GetRandomCoord();
         pill->UpdatePos();
+        playSound = true;
         
         auto seg = AddGameObject();
         seg->AddComponent(new GridComponent());

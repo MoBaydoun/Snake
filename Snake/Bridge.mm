@@ -122,5 +122,13 @@ Sets up the view.
     GameManager::SceneSetup();
 }
 
+- (bool)getPlaySound {
+    return GameManager::playSound;
+}
+
+- (void)setPlaySound:(bool)yn {
+    GameManager::playSound = yn;
+}
+
 @end
 

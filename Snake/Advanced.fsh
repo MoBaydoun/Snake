@@ -3,12 +3,14 @@
 precision highp float;
 
 in vec3 Normal;
+in vec2 TexCoord;
 in vec3 FragPosition;
 
 uniform vec3 objectColor;
 uniform vec3 lightColor;
 uniform vec3 lightPosition;
 uniform vec3 cameraPosition;
+uniform sampler2D tex;
 
 out vec4 FragColor;
 
@@ -32,5 +34,6 @@ void main()
     vec3 specular = specularStrength * spec * lightColor;
     
     vec3 result = (ambient + diffuse + specular) * objectColor;
-    FragColor = vec4(result, 1.0);
+    vec4 texColor = texture(tex, TexCoord);
+    FragColor = texColor * vec4(result, 1.0);
 }

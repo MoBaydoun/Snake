@@ -1,4 +1,7 @@
 #include "Utilities.h"
+
+GLuint Utilities::next = 0;
+
 char *Utilities::ReadShaderFile(const char *fileName) {
     FILE *fp = fopen(fileName, "rb");
     if (fp == NULL)
@@ -152,7 +155,7 @@ void Utilities::PrintErrors(const char *location)
     }
 }
 
-void Utilities::LoadTexture(NSString *fileName)
+GLuint Utilities::LoadTexture(NSString *fileName)
 {
     CGImageRef spriteImage = [UIImage imageNamed:fileName].CGImage;
     if (!spriteImage) {
@@ -173,7 +176,7 @@ void Utilities::LoadTexture(NSString *fileName)
     
     GLuint texName;
     glGenTextures(1, &texName);
-    glActiveTexture(GL_TEXTURE0);
+    glActiveTexture(GL_TEXTURE0 + next);
     glBindTexture(GL_TEXTURE_2D, texName);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -181,4 +184,8 @@ void Utilities::LoadTexture(NSString *fileName)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei) width, (GLsizei) height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
     
     free(spriteData);
+    
+    GLuint result = next;
+    ++next;
+    return result;
 }

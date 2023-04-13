@@ -11,7 +11,8 @@ public:
     static GLuint LoadProgram(const char *vertexSrc, const char *fragmentSrc);
     static const char* FindPath(const char *fileName);
     static void PrintErrors(const char *location);
-    static void LoadTexture(NSString *fileName);
+    static GLuint LoadTexture(NSString *fileName);
 private:
     Utilities() {}
+    static GLuint next;
 };

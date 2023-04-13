@@ -36,6 +36,9 @@
 		FACC00FE29E7A43300207BD0 /* turnright.obj in Resources */ = {isa = PBXBuildFile; fileRef = FACC00F929E7A43300207BD0 /* turnright.obj */; };
 		FACC00FF29E7A43300207BD0 /* body.obj in Resources */ = {isa = PBXBuildFile; fileRef = FACC00FA29E7A43300207BD0 /* body.obj */; };
 		FACC010229E7E0DE00207BD0 /* pill.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FACC010129E7E0DE00207BD0 /* pill.mp3 */; };
+		FACC010429E7E7B700207BD0 /* fire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FACC010329E7E7B700207BD0 /* fire.jpg */; };
+		FACC010629E7E8AD00207BD0 /* rock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FACC010529E7E8AD00207BD0 /* rock.jpg */; };
+		FACC010829E7E98000207BD0 /* drywall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FACC010729E7E98000207BD0 /* drywall.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		FACC00F929E7A43300207BD0 /* turnright.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = turnright.obj; sourceTree = "<group>"; };
 		FACC00FA29E7A43300207BD0 /* body.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = body.obj; sourceTree = "<group>"; };
 		FACC010129E7E0DE00207BD0 /* pill.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pill.mp3; sourceTree = "<group>"; };
+		FACC010329E7E7B700207BD0 /* fire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fire.jpg; sourceTree = "<group>"; };
+		FACC010529E7E8AD00207BD0 /* rock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rock.jpg; sourceTree = "<group>"; };
+		FACC010729E7E98000207BD0 /* drywall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drywall.jpg; sourceTree = "<group>"; };
 		FAF588EC29CD357F00E0515E /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		FAF588ED29CD363800E0515E /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +141,9 @@
 		FA6F518E29CD7DC400B1B554 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FACC010729E7E98000207BD0 /* drywall.jpg */,
+				FACC010529E7E8AD00207BD0 /* rock.jpg */,
+				FACC010329E7E7B700207BD0 /* fire.jpg */,
 				FACC00FA29E7A43300207BD0 /* body.obj */,
 				FACC00F729E7A43300207BD0 /* head.obj */,
 				FACC00F629E7A43300207BD0 /* tail.obj */,
@@ -276,6 +285,7 @@
 				FACC00FF29E7A43300207BD0 /* body.obj in Resources */,
 				FA34B13C299C175A0067FA19 /* Basic.vsh in Resources */,
 				FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */,
+				FACC010829E7E98000207BD0 /* drywall.jpg in Resources */,
 				FA73473D299B7E7700D68127 /* Assets.xcassets in Resources */,
 				FACC00FE29E7A43300207BD0 /* turnright.obj in Resources */,
 				FA73473B299B7E7500D68127 /* Main.storyboard in Resources */,
@@ -286,8 +296,10 @@
 				FAA0711629D2742B00AB2054 /* Passthrough.vsh in Resources */,
 				FA34B13E299C17690067FA19 /* Basic.fsh in Resources */,
 				FAA0712029D4132B00AB2054 /* Advanced.fsh in Resources */,
+				FACC010429E7E7B700207BD0 /* fire.jpg in Resources */,
 				FACC00FC29E7A43300207BD0 /* head.obj in Resources */,
 				FAA0711A29D3EB9400AB2054 /* TrueBasic.vsh in Resources */,
+				FACC010629E7E8AD00207BD0 /* rock.jpg in Resources */,
 				FAA0711C29D3EBA500AB2054 /* TrueBasic.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -64,7 +64,7 @@ void GameManager::SceneSetup()
     MeshRenderer *mr2 = new MeshRenderer();
     mr2->SetColor({1.0f, 1.0f, 1.0f});
     mr2->SetMesh(m1);
-    mr2->SetRenderer(new Renderer());
+    mr2->SetRenderer(new Renderer(@"drywall.jpg"));
     pill->AddComponent(mr2);
     pill->GetComponent<Transform>()->scale = { 0.7f, 0.7f, 0.7f };
     GameManager::pill = pgc;
@@ -79,8 +79,21 @@ void GameManager::SceneSetup()
     MeshRenderer *mr3 = new MeshRenderer();
     mr3->SetColor({ 1.0f, 0.5f, 0.32f });
     mr3->SetMesh(m2);
-    mr3->SetRenderer(new Renderer());
+    mr3->SetRenderer(new Renderer(@"rock.jpg"));
     plane->AddComponent(mr3);
+    
+    auto plane2 = AddGameObject();
+    plane2->AddComponent(new Transform());
+    auto t2 = plane2->GetComponent<Transform>();
+    t2->rotation.x = M_PI / 2;
+    t2->position = { 0.0f, 0.0f, -63.0f };
+    t2->scale = { 50.0f, 50.0f, 1.0f };
+    Mesh *m22 = new Mesh("plane.obj");
+    MeshRenderer *mr32 = new MeshRenderer();
+    mr32->SetColor({ 1.0f, 1.0f, 1.0f });
+    mr32->SetMesh(m22);
+    mr32->SetRenderer(new Renderer(@"fire.jpg"));
+    plane2->AddComponent(mr32);
     
 }
 

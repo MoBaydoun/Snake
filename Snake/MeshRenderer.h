@@ -35,13 +35,14 @@ public:
         renderer->SetUniform("lightColor");
         renderer->SetUniform("lightPosition");
         renderer->SetUniform("cameraPosition");
+        renderer->SetUniform("tex");
         
         glGenVertexArrays(1, &vao);
         glBindVertexArray(vao);
         
         buffers.push_back(DrawCommands::PositionVBO(mesh->GetVertices().positions, renderer->program));
         buffers.push_back(DrawCommands::NormalVBO(mesh->GetVertices().normals, renderer->program));
-//        buffers.push_back(DrawCommands::TexCoordVBO(mesh->GetVertices().texCoords, renderer->program));
+        buffers.push_back(DrawCommands::TexCoordVBO(mesh->GetVertices().texCoords, renderer->program));
         buffers.push_back(DrawCommands::IndexVBO(mesh->GetIndices()));
     }
     
@@ -68,6 +69,7 @@ public:
         glUniform3f((*renderer)["lightPosition"], 0.0f, 0.0f, -55.0f);
         auto cameraPosition = Camera::current->GetPosition();
         glUniform3f((*renderer)["cameraPosition"], cameraPosition.x, cameraPosition.y, cameraPosition.z);
+        glUniform1i((*renderer)["tex"], renderer->tex);
         
         glBindVertexArray(vao);
     

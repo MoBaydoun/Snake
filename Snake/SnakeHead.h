@@ -27,7 +27,7 @@ void SnakeHead::Awake() {
     MeshRenderer *mr = new MeshRenderer();
     mr->SetColor({0.23f, 1.0f, 0.11f});
     mr->SetMesh(m);
-    mr->SetRenderer(new Renderer());
+    mr->SetRenderer(new Renderer(@"snakeskin.jpg"));
     parent->AddComponent(mr);
 }
 

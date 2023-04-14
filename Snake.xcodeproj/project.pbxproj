@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA01A16929E8788700889BDF /* snakeskin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA01A16829E8788700889BDF /* snakeskin.jpg */; };
 		FA1D892329CA26780034E011 /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA1D891B29CA26780034E011 /* Utilities.mm */; };
 		FA1D892429CA26780034E011 /* Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA1D891F29CA26780034E011 /* Bridge.mm */; };
 		FA1D892529CA26780034E011 /* DrawCommands.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA1D892029CA26780034E011 /* DrawCommands.mm */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		6B5280B129D56ADF00A8DB35 /* SnakeHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnakeHead.h; sourceTree = "<group>"; };
 		6B5280B229D57A8600A8DB35 /* GridComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridComponent.h; sourceTree = "<group>"; };
+		FA01A16829E8788700889BDF /* snakeskin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snakeskin.jpg; sourceTree = "<group>"; };
 		FA1D891829CA26770034E011 /* Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Includes.h; sourceTree = "<group>"; };
 		FA1D891A29CA26770034E011 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		FA1D891B29CA26780034E011 /* Utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utilities.mm; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		FA6F518E29CD7DC400B1B554 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA01A16829E8788700889BDF /* snakeskin.jpg */,
 				FACC010729E7E98000207BD0 /* drywall.jpg */,
 				FACC010529E7E8AD00207BD0 /* rock.jpg */,
 				FACC010329E7E7B700207BD0 /* fire.jpg */,
@@ -287,6 +290,7 @@
 				FA734740299B7E7700D68127 /* LaunchScreen.storyboard in Resources */,
 				FACC010829E7E98000207BD0 /* drywall.jpg in Resources */,
 				FA73473D299B7E7700D68127 /* Assets.xcassets in Resources */,
+				FA01A16929E8788700889BDF /* snakeskin.jpg in Resources */,
 				FACC00FE29E7A43300207BD0 /* turnright.obj in Resources */,
 				FA73473B299B7E7500D68127 /* Main.storyboard in Resources */,
 				FACC00F529E7A33500207BD0 /* white.jpg in Resources */,
